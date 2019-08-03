@@ -50,7 +50,7 @@ class DeckOfCards{
 let deck = new DeckOfCards();
 console.log(deck)
 
-function init(){
+function init(){}
   scores = {
     player: 26,
     computer: 26
