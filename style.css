@@ -139,10 +139,10 @@ h1.title{
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,.09);
     z-index: -1;
 }
-.card-window#player:hover {
+.card-window#player-card:hover {
   transform: scale(1.4) rotate(15deg);
 }
-.card-window#opponent:hover{
+.card-window#opponent-card:hover{
   transform: scale(1.4) rotate(-15deg);
 }
 .card-window #player{

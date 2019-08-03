@@ -1,63 +1,75 @@
-// cashing the dom:
+/*--------------------------------- constants ---------------------------------------*/ 
 
-const playerScore = 26;
-const opponentScore = 26;
 const usercard_div = document.getElementById("player");
 const opponentcard_div = document.getElementById("opponent");
-const userScore_div = document.getElementById("player-score");
-const opponentScore_div = document.getElementById("opponent-score");
 const playButton_button = document.querySelector("button");
-const statusBoars_span = document.getElementById('status-board');
+const statusBoard_span = document.getElementById('status-board');
 
+//--------------------------------------application state var------------------------------------------
 
+let scores, winner
 
-document.getElementById("play-button").addEventListener("click", function(){
-    console.log("Hello World");
-  });
+/*--------------------------------------- cached element references -------------------------------------------*/
 
+const scoreElements = {
+  player: document.getElementById("player-score"),
+  computer: document.getElementById("opponent-score")
+}
+const resultElement = {
+  player: {
+    imageElement: document.getElementById("player-card")
+  },
+  computer: {
+    imageElement: document.getElementById("opponent-card")
+  }
+}
+
+resultElement.player.imageElement
+
+/*--------------------------------------------- event listeners -------------------------------------*/
+
+document.getElementById("play-button").addEventListener("click", playRound)
+
+/*----------------------------------------- functions --------------------------------------------------------*/
 
 class DeckOfCards{
   constructor(){
     this.cards = [];
-      const cardSuits = ['Diamonds','Spades','Clubs','Hearts'];
-      const cardNumberValues = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+      const cardSuits = ['d','s','c','h'];
+      const cardNumberValues = ['a', "02", "03", "04", "05", "06", "07", "08", "09", "10", 'j', 'q', 'k'];
         for(let cardSuit in cardSuits){
           for(let cardNumberValue in cardNumberValues){
-            this.cards.push(`${cardNumberValues[cardNumberValue]} of ${cardSuits[cardSuit]}`)
+            this.cards.push(`${cardSuits[cardSuit]}${cardNumberValues[cardNumberValue]}`)
         }
       }
     }
   }
 
-  const constructedDeckOfCards = new DeckOfCards();
 
-  console.log(constructedDeckOfCards);
-// class ShuffleDeckOfCards{
-//   constructor(){
-//         var a;
-//         var b;
-//         var c;
-//         for (c = constructedDeckOfCards.length - 1; c > 0; c--) {
-//             a = Math.floor(Math.random() * (c + 1));
-//             b = a[c];
-//             constructedDeckOfCards[c] = constructedDeckOfCards[a];
-//             constructedDeckOfCards[a] = b;
-//             b = this.unshuffledDeckOfCards;
-//           }
-//             return b;
 
-//     }
-//   }
+let deck = new DeckOfCards();
+console.log(deck)
 
-// function ShuffleDeckOfCards(a){
-//   const cards = this.cards;
-//   for(let i = a.length - 1; i > 0; i--){
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [a[i], a[j]] = [a[j], a[i]];
-//   }
-//   return this
-// }
+function init(){
+  scores = {
+    player: 26,
+    computer: 26
+  }
+  results = {
+    player: '',
+    computer: ''
+  }
+  winner = null;
+}
 
-// var shuffled = ShuffleDeckOfCards(constructedDeckOfCards);
+function render(){
+  for(let score in scores){
 
-// console.log(shuffled);
+  }
+}
+
+function playRound(){
+  resultElement.player.imageElement.classList.add(deck[Math.floor(Math.random()*deck.length)]);
+}
+
+console.log(DeckOfCards.cards[Math.floor(Math.random() * DeckOfCards.cards.length)])
