@@ -42,22 +42,22 @@
     border: 0.15em dashed #daa520; }
 
 .card.diamonds.A,
-.card.dA,
+.card.d14,
 .card.♦A {
   background-image: url("../images/diamonds/diamonds-A.svg"); }
 
 .card.diamonds.K,
-.card.dK,
+.card.d13,
 .card.♦K {
   background-image: url("../images/diamonds/diamonds-K.svg"); }
 
 .card.diamonds.Q,
-.card.dQ,
+.card.d12,
 .card.♦Q {
   background-image: url("../images/diamonds/diamonds-Q.svg"); }
 
 .card.diamonds.J,
-.card.dJ,
+.card.d11,
 .card.♦J {
   background-image: url("../images/diamonds/diamonds-J.svg"); }
 
@@ -107,22 +107,22 @@
   background-image: url("../images/diamonds/diamonds-r02.svg"); }
 
 .card.hearts.A,
-.card.hA,
+.card.h14,
 .card.♥A {
   background-image: url("../images/hearts/hearts-A.svg"); }
 
 .card.hearts.K,
-.card.hK,
+.card.h13,
 .card.♥K {
   background-image: url("../images/hearts/hearts-K.svg"); }
 
 .card.hearts.Q,
-.card.hQ,
+.card.h12,
 .card.♥Q {
   background-image: url("../images/hearts/hearts-Q.svg"); }
 
 .card.hearts.J,
-.card.hJ,
+.card.h11,
 .card.♥J {
   background-image: url("../images/hearts/hearts-J.svg"); }
 
@@ -172,22 +172,22 @@
   background-image: url("../images/hearts/hearts-r02.svg"); }
 
 .card.spades.A,
-.card.sA,
+.card.s14,
 .card.♠A {
   background-image: url("../images/spades/spades-A.svg"); }
 
 .card.spades.K,
-.card.sK,
+.card.s13,
 .card.♠K {
   background-image: url("../images/spades/spades-K.svg"); }
 
 .card.spades.Q,
-.card.sQ,
+.card.s12,
 .card.♠Q {
   background-image: url("../images/spades/spades-Q.svg"); }
 
 .card.spades.J,
-.card.sJ,
+.card.s11,
 .card.♠J {
   background-image: url("../images/spades/spades-J.svg"); }
 
@@ -237,22 +237,22 @@
   background-image: url("../images/spades/spades-r02.svg"); }
 
 .card.clubs.A,
-.card.cA,
+.card.c14,
 .card.♣A {
   background-image: url("../images/clubs/clubs-A.svg"); }
 
 .card.clubs.K,
-.card.cK,
+.card.c13,
 .card.♣K {
   background-image: url("../images/clubs/clubs-K.svg"); }
 
 .card.clubs.Q,
-.card.cQ,
+.card.c12,
 .card.♣Q {
   background-image: url("../images/clubs/clubs-Q.svg"); }
 
 .card.clubs.J,
-.card.cJ,
+.card.c11,
 .card.♣J {
   background-image: url("../images/clubs/clubs-J.svg"); }
 

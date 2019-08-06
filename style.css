@@ -7,7 +7,7 @@ body{
   background-color: rgba(0, 18, 46, 0.76);
   /* background-color: rgba(1, 1, 0, 0.76); */
   font-family: 'Exo 2', sans-serif;
-  transition: all 3s;
+  transition: all .5s;
 }
 header{
   display:flex;
@@ -138,12 +138,12 @@ transition: text-shadow .3s;
 }
 .card-window{
     display: flex;
-    height: 250px;
-    width: 125px;
+    height: 350px;
+    width: 175px;
     background-image: url(assets/card-deck-css/images/backs/red.svg);
     background-color: white;
-    background-size: 125px 250px;
-    transition: all .3s;
+    background-size: 175px 350px;
+    transition: all .7s;
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,.09);
     z-index: -1;
 }
