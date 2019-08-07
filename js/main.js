@@ -1,16 +1,11 @@
 /*--------------------------------- constants ---------------------------------------*/ 
-
 const usercard_div = document.getElementById("player");
 const opponentcard_div = document.getElementById("opponent");
 const playButton_button = document.querySelector("button");
 var statusBoard_span = document.getElementById('status-board');
-
 //--------------------------------------application state var------------------------------------------
-
 let scores, winner
-
 /*--------------------------------------- cached element references -------------------------------------------*/
-
 const scoreElements = {
   player: document.getElementById("player-score"),
   computer: document.getElementById("opponent-score")
@@ -23,14 +18,10 @@ const resultElement = {
     imageElement: document.getElementById("opponent-card")
   }
 }
-
 /*--------------------------------------------- event listeners -------------------------------------*/
-
 document.getElementById("play-button").addEventListener("click", playRound)
-
 /*----------------------------------------- functions --------------------------------------------------------*/
 init();
-
 class AudioController {
   constructor(){
     this.bgMusic = new Audio('assets/audio/bg-music.mp3');
@@ -69,7 +60,6 @@ class AudioController {
     this.winningSound.play()
   }
 }
-
 cards = [];
 const cardSuits = ['d','s','c','h'];
   const cardNumberValues = ["02", "03", "04", "05", "06", "07", "08", "09", "10", '11', '12', '13','14'];
@@ -81,13 +71,10 @@ const cardSuits = ['d','s','c','h'];
         })
     }
   }
-
 var playerHand = [];
 var playerCard = [];
-var playerPoints = 0;
 var computerHand = [];
 var computerCard = [];
-var computerPoints = 0;
 var idx;
 
 while(cards.length>0){ 
@@ -99,13 +86,12 @@ while(cards.length>0){
 function checkWinner(){
   if(playerHand.length === 0 || computerHand.length === 0){
     if(playerHand.length > 0){
-      statusBoard_span.innerHTML = "You Won!"
+      statusBoard_span.innerHTML = "🎉🎊You Won!🤑🥁"
     }else{
-      statusBoard_span.innerHTML = "You Lost!"
+      statusBoard_span.innerHTML = "🤬😕You Lost!💩🙊"
     }
   }
 }
-
 function dealToPlayer(){
   if (playerHand.length > 0) {
     playerCard = playerHand.shift();
@@ -113,7 +99,6 @@ function dealToPlayer(){
   }
   console.log("dealt to player")
 }
-
 function dealToComputer(){
   if (computerHand.length > 0) {
     computerCard = computerHand.shift();
@@ -121,35 +106,31 @@ function dealToComputer(){
   }
   console.log("dealt to computer")
 }
-
 function valueEvaluator(){
 
   if(playerHand.length > 0 || computerHand.length > 0) {
     if (parseInt(playerCard.value) > parseInt(computerCard.value)){
+      playerHand.push(playerCard)
+      playerHand.push(computerCard)
       audioController = new AudioController();
       this.audioController.pointUpSound();
       checkWinner();
       console.log('checked to add points')
     }else if (parseInt(computerCard.value) > parseInt(playerCard.value)){
+      computerHand.push(playerCard)
+      computerHand.push(computerCard)
       audioController = new AudioController();
-      this.audioController.pointDownSound()
+      this.audioController.pointDownSound();
       checkWinner();
       console.log('checked to remove points')
     }else if (parseInt(playerCard.value) == parseInt(computerCard.value)){
-      // audioController = new AudioController();
-      // this.audioController.warSound()
-      // war();
+      
     }else if(playerHand.length === 0 || computerHand.length === 0){
       checkWinner();
     }
-
-
   }
   // render()
 }
-
-
-
 function init(){
   scores = {
     player: scoreElements.player.innerHTML= 26,
@@ -161,24 +142,33 @@ function init(){
   }
   winner = null;
 }
-
 function render(){
   if(computerHand.length > 0 && playerHand.length > 0){
+    console.log('Has rendered')
     resultElement.player.imageElement.classList.add(`${playerCard.suit}`+`${playerCard.value}`, "card");
     resultElement.computer.imageElement.classList.add(`${computerCard.suit}`+`${computerCard.value}`, "card");
+    console.log(resultElement);
   }
-  console.log('Has rendered')
 }
+function removeRender(){
+  setTimeout(function(){
+  resultElement.player.imageElement.classList.remove(`${playerCard.suit}`+`${playerCard.value}`, "card");
+  resultElement.computer.imageElement.classList.remove(`${computerCard.suit}`+`${computerCard.value}`, "card");
+  console.log("removed Render")
+},1000)}
 
 function playRound(){
-  if(playerCard || computerCard){
+  // if(playerCard || computerCard){
     this.audioController = new AudioController();
     this.audioController.showCardSound();
-    checkWinner();
     dealToPlayer()
     dealToComputer()
     valueEvaluator();
     render();
-  }
+    checkWinner();
+    removeRender();
+    scoreElements.player.innerHTML = playerHand.length;
+    scoreElements.computer.innerHTML = computerHand.length;
+  // }
   console.log('has played round')
 }
