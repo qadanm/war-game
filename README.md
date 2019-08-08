@@ -9,11 +9,11 @@
 
 #### The Objective:
 
-##### The goal is to be the first player to win all 52 cards
+##### The goal is to not allow your points to go to 0
 
 #### The Deal:
 
-##### The deck is divided evenly, with each player receiving 26 cards, dealt one at a time, face down. Anyone may deal first. Each player places their stack of cards face down, in front of them.
+##### The deck is divided evenly, with each player receiving 26 cards, dealt one at a time, face down.
 
 #### The Play:
 
