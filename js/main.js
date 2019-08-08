@@ -3,6 +3,7 @@ const usercard_div = document.getElementById("player");
 const opponentcard_div = document.getElementById("opponent");
 const playButton_button = document.querySelector("button");
 var statusBoard_span = document.getElementById('status-board');
+var replayButton = document.getElementById("replay-button");
 //--------------------------------------application state var------------------------------------------
 let scores, winner
 /*--------------------------------------- cached element references -------------------------------------------*/
@@ -19,7 +20,7 @@ const resultElement = {
   }
 }
 /*--------------------------------------------- event listeners -------------------------------------*/
-document.getElementById("play-button").addEventListener("click", playRound)
+document.getElementById("play-button").addEventListener("click", playRound);
 /*----------------------------------------- functions --------------------------------------------------------*/
 init();
 class AudioController {
@@ -53,7 +54,7 @@ class AudioController {
   showCardSound(){
     this.showCard.play()
   }
-  warSound(){
+  warSoundSound(){
     this.warSound.play()
   }
   winningSound(){
@@ -77,7 +78,7 @@ var computerHand = [];
 var computerCard = [];
 var idx;
 
-while(cards.length>0){ 
+while(cards.length>0){
     idx = Math.random()*cards.length;
     playerHand.push(cards.splice(idx,1)[0]);
     idx = Math.random()*cards.length;
@@ -87,8 +88,10 @@ function checkWinner(){
   if(playerHand.length === 0 || computerHand.length === 0){
     if(playerHand.length > 0){
       statusBoard_span.innerHTML = "🎉🎊You Won!🤑🥁"
+      replayButton.style = "visibility: visible;"
     }else{
       statusBoard_span.innerHTML = "🤬😕You Lost!💩🙊"
+      replayButton.style = "visibility: visible;"
     }
   }
 }
@@ -97,39 +100,55 @@ function dealToPlayer(){
     playerCard = playerHand.shift();
     return playerCard;
   }
-  console.log("dealt to player")
 }
 function dealToComputer(){
   if (computerHand.length > 0) {
     computerCard = computerHand.shift();
     return computerCard;
   }
-  console.log("dealt to computer")
 }
 function valueEvaluator(){
-
+  warPile = [];
   if(playerHand.length > 0 || computerHand.length > 0) {
     if (parseInt(playerCard.value) > parseInt(computerCard.value)){
-      playerHand.push(playerCard)
-      playerHand.push(computerCard)
+      playerHand.push(playerCard);
+      playerHand.push(computerCard);
+      warPile = computerHand.splice(0, 1);
       audioController = new AudioController();
       this.audioController.pointUpSound();
       checkWinner();
       console.log('checked to add points')
     }else if (parseInt(computerCard.value) > parseInt(playerCard.value)){
-      computerHand.push(playerCard)
-      computerHand.push(computerCard)
+      computerHand.push(playerCard);
+      computerHand.push(computerCard);
+      warPile = playerHand.splice(0, 1);
       audioController = new AudioController();
       this.audioController.pointDownSound();
       checkWinner();
       console.log('checked to remove points')
-    }else if (parseInt(playerCard.value) == parseInt(computerCard.value)){
-      
+    }else if (parseInt(playerCard.value) === parseInt(computerCard.value)){
+      war();removeDisplayWar();checkWinner();
     }else if(playerHand.length === 0 || computerHand.length === 0){
       checkWinner();
     }
   }
-  // render()
+}
+function displayWar(){
+  statusBoard_span.innerHTML = "WAR";
+  document.body.style = "background-color: maroon; transition: background-color .75s ease-in-out;";
+}
+function removeDisplayWar(){
+  setTimeout(function(){
+  statusBoard_span.innerHTML = "🙃 😁 😜";
+  document.body.style = "background-color: rgba(0, 18, 46, 0.76);"
+},3000)}
+function war(){
+  displayWar();
+  warPile = []
+  warPile = computerHand.splice(0, 3);
+  warPile = playerHand.splice(0, 3);
+  this.audioController = new AudioController();
+  this.audioController.warSoundSound();
 }
 function init(){
   scores = {
@@ -154,21 +173,17 @@ function removeRender(){
   setTimeout(function(){
   resultElement.player.imageElement.classList.remove(`${playerCard.suit}`+`${playerCard.value}`, "card");
   resultElement.computer.imageElement.classList.remove(`${computerCard.suit}`+`${computerCard.value}`, "card");
-  console.log("removed Render")
 },1000)}
 
 function playRound(){
-  // if(playerCard || computerCard){
     this.audioController = new AudioController();
     this.audioController.showCardSound();
-    dealToPlayer()
-    dealToComputer()
+    dealToPlayer();
+    dealToComputer();
     valueEvaluator();
     render();
     checkWinner();
     removeRender();
     scoreElements.player.innerHTML = playerHand.length;
     scoreElements.computer.innerHTML = computerHand.length;
-  // }
-  console.log('has played round')
 }

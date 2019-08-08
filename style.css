@@ -5,7 +5,6 @@
 }
 body{
   background-color: rgba(0, 18, 46, 0.76);
-  /* background-color: rgba(1, 1, 0, 0.76); */
   font-family: 'Exo 2', sans-serif;
   transition: all .5s;
 }
@@ -33,18 +32,6 @@ links #logo:hover{
   color: rgb(255, 251, 36);
   text-shadow: 4px 5px rgba(0,0,0,.06);
 }
-/* links #logo:hover{
-  -webkit-animation: rotation .5s infinite linear;
-  text-shadow: 10px 10px 10px rgba(0,0,0,.09);
-}
-@-webkit-keyframes rotation {
-  from {
-      -webkit-transform: rotate(-10deg);
-  }
-  to {
-      -webkit-transform: rotate(10deg);
-  }
-} */
 links a{
   display: flex;
   flex-direction:row;
@@ -107,7 +94,7 @@ links a:hover{
 #i:hover{
   color: #fb3958;
 }
-game{
+game {
     display: flex;
     background-color: rgba(101,165,248,.4);
     align-items: baseline;
@@ -195,7 +182,7 @@ transition: text-shadow .3s;
     text-align: left;
     z-index: 3;
 }
-button{
+#play-button{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -217,7 +204,7 @@ button{
   border: none;
   outline: none;
  }
- button:hover
+ #play-button:hover
  {
   animation: animate 5s linear infinite;
  }
@@ -232,7 +219,7 @@ button{
    background-position: 400%;
   }
  }
- button:before
+ #play-button:before
  {
   content: '';
   position: absolute;
@@ -241,7 +228,7 @@ button{
   right: -5px;
   bottom: -5px;
   z-index: -1;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: linear-gradient(90deg, #1db8ff, #f34caa, #ffed4b, #34bfff);
   background-size: 400%;
   border-radius: 40px;
   opacity: 0;
@@ -249,87 +236,14 @@ button{
  
   
  }
- button:hover:before
- {
-  
-  filter: blur(20px);
-  opacity:1;
-  animation: animate 5s linear infinite;
+ #replay-button{
+   visibility: hidden;
  }
-/* body:before{
-  content:'';
-  height:100%;
-  display:inline-block;
-  vertical-align:middle;
-}
-button{
-  background: brown;
-  color:#fff;
-  border:none;
-  position:relative;
-  height: 80px;
-  width: 35%;
-  font-size:4em;
-  padding:0 2em;
-  text-align: center;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-  display: block;
-  margin: auto;
-  margin-top: 50px;
-  box-shadow: 3px 4px rgba(0,0,0,.1);
-  text-shadow: 3px 3px rgba(0,0,0,.1);
-}
-button:hover{
-  background:white;
-  opacity: 50%;
-  color:brown;
-}
-button:before,button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:5px;
-  width:0;
-  background: brown;
-  transition:450ms ease all;
-}
-button:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-button:hover:before,button:hover:after{
-  width:100%;
-  transition:800ms ease all;
-} */
-
-/* footer{
-  background-color: #142442;
-  color: white;
-}
-.info{
-  margin: 15px 0px;
-}
-footer a{
-  color: white;
-  display: inline-block;
-  padding: 10px 0px
-}
-footer .info-title{
-  padding: 15px 0px;
-  font-size: 1.2em;
-}
-footer p{
-  padding: 10px;
-}
-footer .copyright{
-  text-align: center;
-} */
-
+ #play-button:hover:before{
+  filter: blur(18px);
+  opacity:1;
+  animation: animate 6s linear infinite;
+ }
 @media screen and (max-width: 799px){
   h1.title{
     padding: 10px;
