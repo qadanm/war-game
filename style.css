@@ -287,16 +287,16 @@ transition: text-shadow .3s;
 }
 @media screen and (max-width: 799px){
   links a{
-    padding: 5px;
+    padding: 2px;
     margin: 2px;
 
   }
 }
 @media screen and (max-width: 626px){
   links a{
-    padding: 2px;
-    margin: 0px 2px;
-    font-size: 1em;
+    padding: 1px;
+    margin: 0px 1px;
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 620px){
@@ -304,12 +304,23 @@ transition: text-shadow .3s;
     visibility: hidden;
   }
   h1.title{
-    transition: all .4s;
-    padding: 3px;
-    margin: 0px;
+    padding: 10px;
+    margin: 5px 10px;
     color: white;
-    font-size: 3em;
-    letter-spacing: 5px;
+    font-size: 1.5em;
+    letter-spacing: 7px;
     text-shadow: 2px 5px rgba(0,0,0,.09);
-}
+  }
+
+#play-button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 550%);
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+ }
 }
