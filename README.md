@@ -1,4 +1,7 @@
-# War Car Game :spades::hearts::clubs:
+# War Card Game :spades::hearts::clubs:
+
+![Landing page](assets/different-state-imgs/landing-page)
+![Landing page](assets/different-state-imgs/war-state)
 
 ##### This Web Application brings a childhood classic into the modern era with various interactive elements throughout the game-play experience.
 
@@ -25,3 +28,11 @@
 #### The Score:
 
 ##### The game ends when one player has 0 points.
+
+#### Winning State:
+
+![Landing page](assets/different-state-imgs/winning-state)
+
+#### Losing State:
+
+![Landing page](assets/different-state-imgs/losing-state)

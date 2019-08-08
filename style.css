@@ -22,14 +22,15 @@ links{
   align-items: center;
 }
 links #logo{
-  color: rgb(255, 255, 255);
+  color: rgb(236, 203, 111);
   padding: 2px 25px;
   font-size: 2.6em;
-  transition: all .2s;
+  transition: all .5s;
+
 }
 links #logo:hover{
   background-color: transparent;
-  color: rgb(255, 251, 36);
+  color: rgb(201, 127, 78);
   text-shadow: 4px 5px rgba(0,0,0,.06);
 }
 links a{
