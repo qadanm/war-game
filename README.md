@@ -1,4 +1,4 @@
-# War Card Game :spades::hearts::clubs:
+#:spades::hearts::clubs: War Card Game :spades::hearts::clubs:
 
 ![Landing page](assets/different-state-imgs/landing-page.png)
 ![war state](assets/different-state-imgs/war-state.png)
@@ -36,3 +36,6 @@
 #### Losing State:
 
 ![losing state](assets/different-state-imgs/losing-state.png)
+
+
+#:spades::hearts::clubs: War Card Game :spades::hearts::clubs:
