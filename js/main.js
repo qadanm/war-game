@@ -37,28 +37,28 @@ class AudioController {
     this.bgMusic.loop = true;
   }
   startMusic(){
-    this.bgMusic.play()
+    this.bgMusic.play();
   }
   hoverOverCardSound(){
-    this.hoverCard.play()
+    this.hoverCard.play();
   }
-  loserSound(){
-    this.loserSound.play()
+  loserSoundSound(){
+    this.losingSound.play();
   }
   pointDownSound(){
-    this.pointDown.play()
+    this.pointDown.play();
   }
   pointUpSound(){
-    this.pointUp.play()
+    this.pointUp.play();
   }
   showCardSound(){
-    this.showCard.play()
+    this.showCard.play();
   }
   warSoundSound(){
-    this.warSound.play()
+    this.warSound.play();
   }
-  winningSound(){
-    this.winningSound.play()
+  winningSoundSound(){
+    this.winningSound.play();
   }
 }
 cards = [];
@@ -87,10 +87,16 @@ while(cards.length>0){
 function checkWinner(){
   if(playerHand.length === 0 || computerHand.length === 0){
     if(playerHand.length > 0){
-      statusBoard_span.innerHTML = "🎉🎊You Won!🤑🥁"
+      audioController = new AudioController();
+      this.audioController.winningSoundSound();
       replayButton.style = "visibility: visible;"
+      displayWin();
+      removeDisplaywin();
     }else{
-      statusBoard_span.innerHTML = "🤬😕You Lost!💩🙊"
+      audioController = new AudioController();
+      this.audioController.loserSoundSound();
+      displayLoss();
+      removeDisplayLoss();
       replayButton.style = "visibility: visible;"
     }
   }
@@ -127,7 +133,9 @@ function valueEvaluator(){
       checkWinner();
       console.log('checked to remove points')
     }else if (parseInt(playerCard.value) === parseInt(computerCard.value)){
-      war();removeDisplayWar();checkWinner();
+      war();
+      removeDisplayWar();
+      checkWinner();
     }else if(playerHand.length === 0 || computerHand.length === 0){
       checkWinner();
     }
@@ -138,6 +146,24 @@ function displayWar(){
   document.body.style = "background-color: maroon; transition: background-color .75s ease-in-out;";
 }
 function removeDisplayWar(){
+  setTimeout(function(){
+  statusBoard_span.innerHTML = "🙃 😁 😜";
+  document.body.style = "background-color: rgba(0, 18, 46, 0.76);"
+},3000)}
+function displayWin(){
+  statusBoard_span.innerHTML = "🎉🎊You Won!🤑🥁"
+  document.body.style = "background-color: darkgreen; transition: background-color .75s ease-in-out;";
+}
+function removeDisplaywin(){
+  setTimeout(function(){
+  statusBoard_span.innerHTML = "🙃 😁 😜";
+  document.body.style = "background-color: rgba(0, 18, 46, 0.76);"
+},3000)}
+function displayLoss(){
+  statusBoard_span.innerHTML = "🤬😕You Lost!💩🙊"
+  document.body.style = "background-color: black; transition: background-color .75s ease-in-out;";
+}
+function removeDisplayLoss(){
   setTimeout(function(){
   statusBoard_span.innerHTML = "🙃 😁 😜";
   document.body.style = "background-color: rgba(0, 18, 46, 0.76);"
