@@ -1,7 +1,7 @@
 # War Card Game :spades::hearts::clubs:
 
 ![Landing page](assets/different-state-imgs/landing-page.png)
-![war state](assets/different-state-imgs/war-state)
+![war state](assets/different-state-imgs/war-state.png)
 
 ##### This Web Application brings a childhood classic into the modern era with various interactive elements throughout the game-play experience.
 
@@ -31,8 +31,8 @@
 
 #### Winning State:
 
-![winning state](assets/different-state-imgs/winning-state)
+![winning state](assets/different-state-imgs/winning-state.png)
 
 #### Losing State:
 
-![losing state](assets/different-state-imgs/losing-state)
+![losing state](assets/different-state-imgs/losing-state.png)
